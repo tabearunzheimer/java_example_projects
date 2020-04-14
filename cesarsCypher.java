@@ -1,19 +1,25 @@
 public class Program
 {
     public static void main(String[] args) {
-        // change text to encrypt a specific string
+        // change the following string to encrypt a specific text
         String text = "To be or not to be, that is the question";
-        int offset= 15;
+        
+        //change the offset depending on the text 
+        //offset should be between 1-26
+        int offset= 15;              
+        
         text = decrypt(text, offset);
         System.out.println("crypted text: \n" + text);
-        text = encrypt(text, offset);
+        text = decrypt(text, offset*(-1));
         System.out.println("decrypted text: \n" + text);
     }
     
     public static String decrypt(String n, int offset){
-        String erg = "";
-        n = n.toLowerCase();
-        for (int i = 0; i < n.length();i++){
+        String erg = "";       
+        //turn all letters to lower case to get ASCII codes between 97-122
+        n = n.toLowerCase();       
+        for (int i = 0; i < n.length();i++){            
+            //if the letter is a char, retrieve the ascii code, add the offset and convert back to char
             if (Character.isLetter(n.charAt(i))){
                 int x = (int) n.charAt(i);
                 x += offset;
